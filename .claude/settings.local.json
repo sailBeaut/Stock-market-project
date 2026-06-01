@@ -18,7 +18,10 @@
       "Bash(sqlite3 trading.db \"PRAGMA table_info\\(labels\\);\")",
       "Bash(sqlite3 trading.db \"PRAGMA table_info\\(features\\);\")",
       "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
-      "Bash(python validation/diagnose_prompts_1_to_6.py)"
+      "Bash(python validation/diagnose_prompts_1_to_6.py)",
+      "Bash(grep -E \"\\\\.db$\")",
+      "Bash(venv\\\\Scripts\\\\python.exe -c \"import dotenv; print\\('dotenv ok'\\)\")",
+      "Bash(python validation/test_api.py)"
     ]
   }
 }

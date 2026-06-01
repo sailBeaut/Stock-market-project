@@ -10,9 +10,9 @@ LASTMOD_KEY = "trading.db.lastmod"
 
 
 def _get_client():
-    endpoint = os.environ.get("ENDPOINTS_FOR_S3_CLIENTS")
-    access_key = os.environ.get("R2_ACCESS_KEY_ID")
-    secret_key = os.environ.get("SECRET_ACCESS_KEY")
+    endpoint = (os.environ.get("ENDPOINTS_FOR_S3_CLIENTS") or "").strip() or None
+    access_key = (os.environ.get("R2_ACCESS_KEY_ID") or "").strip() or None
+    secret_key = (os.environ.get("SECRET_ACCESS_KEY") or "").strip() or None
 
     assert endpoint, "ENDPOINTS_FOR_S3_CLIENTS not set in environment"
     assert access_key, "R2_ACCESS_KEY_ID not set in environment"
@@ -29,7 +29,7 @@ def _get_client():
 
 
 def _bucket():
-    bucket = os.environ.get("R2_BUCKET_NAME")
+    bucket = (os.environ.get("R2_BUCKET_NAME") or "").strip() or None
     assert bucket, "R2_BUCKET_NAME not set in environment"
     return bucket
 
